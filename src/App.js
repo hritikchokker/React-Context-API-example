@@ -1,11 +1,20 @@
-import React from 'react';
-import './style.css';
-
+import React, { useState } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import ThemeContext from "./Context/ThemeContext";
+import Header from "./Components/Header";
+import Main from "./Components/MainWithClass";
 export default function App() {
+  const themeHook = useState("light");
   return (
-    <div>
-      <h1>Context Api Example !</h1>
-      <p>Start editing to see some magic happen :)</p>
-    </div>
+    <ThemeContext.Provider value = {themeHook}>
+      <div>
+        <Header />
+        <Main />
+      </div>
+    </ThemeContext.Provider>
   );
 }
+
+export default App;
+
